@@ -21,3 +21,9 @@ https://pywavelets.readthedocs.io/en/latest/ref/dwt-discrete-wavelet-transform.h
 
 
 https://pywavelets.readthedocs.io/en/latest/ref/thresholding-functions.html#thresholding
+
+### stackexchange Signal Processing
+
+https://dsp.stackexchange.com/questions/15823/feature-extraction-reduction-using-dwt
+
+https://dsp.stackexchange.com/
