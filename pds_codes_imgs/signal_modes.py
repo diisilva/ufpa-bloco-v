@@ -13,9 +13,10 @@ import numpy as np
 from matplotlib import pyplot as plt
 from pywt._doc_utils import boundary_mode_subplot
 import pywt
+from pywt import wavedec
 import csv
 
-path_csv = '/home/diego-silva/Documentos/pds_sample/sample_2.txt'
+path_csv = '/home/diego/Documentos/pds_sample_all/ufpa-bloco-v/pds_codes_imgs/sample_2.txt'
 list_values = []
 
 def listValues(path):
@@ -30,11 +31,20 @@ def listValues(path):
     return list_values
 
 
+def pywtCalculus2(listDistrib,typeDWT):
+    
+    coeffs = wavedec(listDistrib, typeDWT, level=2)
+
+    cA2, cD2, cD1 = coeffs
+
+    return cA2, cD2, cD1
+
 def pywtCalculus(listDistrib,typeDWT):
     
     (ca, cd) = pywt.dwt(listDistrib,typeDWT)
 
     return ca,cd
+
 
 def modesGraphs(listValues):
     
@@ -57,9 +67,10 @@ def modesGraphs(listValues):
 
 list_distrib = listValues(path_csv)
 
-dwt = 'db2'
-c1,c2 = pywtCalculus(list_distrib,dwt)
-modesGraphs(c1)
+dwt = 'db1'
+# c1,c2 = pywtCalculus(list_distrib,dwt)
+ca1,cd2,cd1 = pywtCalculus2(list_distrib,dwt)
+modesGraphs(cd2)
 
 
 
